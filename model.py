@@ -31,6 +31,7 @@ def process_pdf(pdf_path):
     try:
         # Convert the first page of the PDF to an image
         images = convert_from_path(pdf_path, first_page=1, last_page=1)
+        print(f"Successfully converted PDF to image: {pdf_path}")
     except Exception as e:
         print(f"Error processing PDF: {e}")
         return None
