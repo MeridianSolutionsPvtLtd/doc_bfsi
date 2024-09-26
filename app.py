@@ -206,6 +206,6 @@ def view_bank_statement():
         raise HTTPException(status_code=500, detail=f"Error fetching Bank Statement CSV: {str(e)}")
 
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host='127.0.0.1', port=8000)
+# if __name__ == "__main__":
+#     import uvicorn
+#     uvicorn.run(app, host='127.0.0.1', port=8000)
