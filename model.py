@@ -29,8 +29,8 @@ key = "26cfaa6c7c314e9a8ad7a68587ca3ce9"
  
 def process_pdf(pdf_path):
     try:
-        # Convert the first page of the PDF to an image
         images = convert_from_path(pdf_path, first_page=1, last_page=1)
+        print(f"Converted PDF to {len(images)} images.")  # Log the number of images
     except Exception as e:
         print(f"Error processing PDF: {e}")
         return None
