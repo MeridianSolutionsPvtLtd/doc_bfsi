@@ -11,7 +11,7 @@ import pandas as pd
 from datetime import datetime, date
 from fastapi.middleware.cors import CORSMiddleware
 from uuid import uuid4  # Import for generating unique ID
-from model import download_csv, upload_bank_file, get_extracted_values,upload_pdf_to_blob, view_pdf
+from model import upload_bank_file, get_extracted_values,upload_pdf_to_blob, view_pdf,view_csv
 from pymongo import MongoClient
 import certifi
 
@@ -200,12 +200,12 @@ def view_pan_file():
 def view_bank_statement():
     """Route to download and view the bank statement CSV."""
     try:
-        file_path = download_csv("Bank_Statement", "csv")  # Update blob name if necessary
-        return FileResponse(file_path, media_type="text/csv", filename="Bank_Statement.csv")
+        return view_csv("Bank_Statement", "csv")  # Update blob name if necessary
+        # return FileResponse(file_path, media_type="text/csv", filename="Bank_Statement.csv")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error fetching Bank Statement CSV: {str(e)}")
 
-
+ 
 # if __name__ == "__main__":
 #     import uvicorn
 #     uvicorn.run(app, host='127.0.0.1', port=8000)
